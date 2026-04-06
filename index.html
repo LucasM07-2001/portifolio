@@ -18,15 +18,7 @@
     <link rel="stylesheet" href="assets/css/styles.css" />
   </head>
 
-  <!--
-    id="top" no <body> permite que o botão "Voltar ao topo" (href="#top")
-    funcione corretamente em todos os browsers, incluindo Safari/iOS.
-  -->
   <body id="top">
-
-    <!-- ============================================
-         MENU / HEADER
-         ============================================ -->
     <header class="menu white-bg" role="banner">
       <div class="main-content menu-content">
         <h1>
@@ -41,17 +33,6 @@
           </a>
         </h1>
 
-        <!--
-          CORREÇÃO BUG #1: O <label> envolve o <input type="checkbox"> e as barras.
-          O seletor CSS ".burger input:checked ~ .menu-nav" só funciona quando
-          .menu-nav é irmão do <label.burger>, não quando está dentro dele.
-          Estrutura correta: label.burger + nav.menu-nav como irmãos dentro de
-          .menu-content. O for="burger-toggle" mantém a associação.
-
-          CORREÇÃO BUG #2: O <input id="burger-toggle"> estava DENTRO do <label>,
-          o que torna o seletor ~.menu-nav inoperante (o nav não é sibling do input).
-          Movido para ANTES do label, mantendo o for= para ligação semântica.
-        -->
         <input type="checkbox" id="burger-toggle" hidden />
 
         <label
@@ -76,22 +57,9 @@
       </div>
     </header>
 
-    <!--
-      Espaçador com a mesma altura do menu fixo (65px).
-      Evita que o conteúdo fique atrás do menu ao carregar a página.
-    -->
     <div class="menu-spacing" aria-hidden="true"></div>
 
-    <!-- ============================================
-         SEÇÃO INTRO
-         ============================================ -->
     <section class="intro main-bg section" id="intro" aria-label="Introdução">
-      <!--
-        CORREÇÃO BUG #3: O atributo "preload" estava ausente.
-        Em iOS Safari, vídeos sem preload="none" ou preload="metadata"
-        bloqueiam o autoplay silenciosamente. Adicionado preload="metadata"
-        que permite autoplay sem pré-carregar o arquivo inteiro.
-      -->
       <video
         class="bg-video"
         autoplay
@@ -115,10 +83,6 @@
         </div>
 
         <div class="intro-img">
-          <!--
-            Tocha interativa (Uiverse.io by KSAplay).
-            checked=checked simplificado para checked (HTML5 booleano).
-          -->
           <label class="container" aria-label="Ligar ou desligar tocha">
             <div class="simple-text">Click me!</div>
             <input type="checkbox" checked />
@@ -145,16 +109,40 @@
               </div>
               <div class="stick">
                 <div class="side side-left">
-                  <div></div><div></div><div></div><div></div>
-                  <div></div><div></div><div></div><div></div>
-                  <div></div><div></div><div></div><div></div>
-                  <div></div><div></div><div></div><div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
                 </div>
                 <div class="side side-right">
-                  <div></div><div></div><div></div><div></div>
-                  <div></div><div></div><div></div><div></div>
-                  <div></div><div></div><div></div><div></div>
-                  <div></div><div></div><div></div><div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
                 </div>
               </div>
             </div>
@@ -163,9 +151,6 @@
       </div>
     </section>
 
-    <!-- ============================================
-         SEÇÃO SKILLS
-         ============================================ -->
     <section class="white-bg section" id="skills" aria-label="Skills">
       <div class="main-content">
         <div class="skills-content">
@@ -192,9 +177,6 @@
       </div>
     </section>
 
-    <!-- ============================================
-         SEÇÃO GALLERY
-         ============================================ -->
     <section class="intro main-bg section" id="gallery" aria-label="Gallery">
       <video
         class="bg-video"
@@ -209,7 +191,6 @@
       </video>
 
       <div class="main-content gallery-content">
-        <!-- INTRO -->
         <div class="gallery-header">
           <h2>Projetos & Experimentos</h2>
           <p>
@@ -220,9 +201,7 @@
           </p>
         </div>
 
-        <!-- GRID -->
         <div class="gallery-grid">
-          <!-- PROJETO PRINCIPAL -->
           <div class="project-card destaque">
             <h3>Sistema Financeiro Pessoal</h3>
             <p class="status">Em desenvolvimento 🚧</p>
@@ -246,7 +225,6 @@
             </div>
           </div>
 
-          <!-- PROJETO 2 -->
           <div class="project-card">
             <h3>Landing Page Profissional</h3>
             <p>
@@ -257,7 +235,6 @@
             <span class="tech">HTML • CSS • JavaScript</span>
           </div>
 
-          <!-- PROJETO 3 -->
           <div class="project-card">
             <h3>Interface Clone (UI)</h3>
             <p>
@@ -267,7 +244,6 @@
             <span class="tech">CSS • Flexbox • Grid</span>
           </div>
 
-          <!-- EXPERIMENTO -->
           <div class="project-card">
             <h3>Experimentos Visuais</h3>
             <p>
@@ -277,7 +253,6 @@
             <span class="tech">JavaScript • Animações</span>
           </div>
 
-          <!-- FUTURO -->
           <div class="project-card future">
             <h3>Próximos Projetos</h3>
             <p>
@@ -287,13 +262,9 @@
             <span class="tech">Em evolução...</span>
           </div>
         </div>
-        <!-- FECHA gallery-grid -->
       </div>
     </section>
 
-    <!-- ============================================
-         SEÇÃO WORK
-         ============================================ -->
     <section class="white-bg section" id="work" aria-label="Work">
       <div class="main-content">
         <div class="work-content">
@@ -333,9 +304,6 @@
       </div>
     </section>
 
-    <!-- ============================================
-         FOOTER / CONTATO
-         ============================================ -->
     <footer class="footer" id="contact" aria-label="Contato e rodapé">
       <div class="main-content footer-content">
         <p class="footer-text">© 2026 Lucas Monteiro • Desenvolvedor Web</p>
@@ -359,12 +327,6 @@
             <img src="assets/img/whatsapp.svg" alt="WhatsApp" class="icon" />
           </a>
 
-          <!--
-            CORREÇÃO BUG #4: href corrompido pelo Cloudflare email obfuscation.
-            Restaurado para mailto: direto. Se o site usar Cloudflare, o sistema
-            vai reofuscar automaticamente em produção — este é o valor correto
-            para manter no source do projeto (repositório/local).
-          -->
           <a
             href="mailto:lucasmonteiro.dev@gmail.com"
             aria-label="Enviar email"
@@ -393,9 +355,6 @@
       </div>
     </footer>
 
-    <!-- ============================================
-         BOTÃO VOLTAR AO TOPO
-         ============================================ -->
     <a href="#top" class="button" aria-label="Voltar ao topo">
       <svg class="svgIcon" viewBox="0 0 384 512" aria-hidden="true">
         <path
@@ -403,7 +362,6 @@
         ></path>
       </svg>
     </a>
-
 
     <script>
       const burgerToggle = document.getElementById("burger-toggle");

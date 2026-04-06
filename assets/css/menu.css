@@ -1,7 +1,3 @@
-/* ============================================
-   MENU.CSS — Navegação principal
-   ============================================ */
-
 .menu {
   background: var(--white-color);
   position: fixed;
@@ -46,9 +42,7 @@
   white-space: nowrap;
 }
 
-/* ============================================
-   NAVEGAÇÃO DESKTOP
-   ============================================ */
+
 .menu-nav ul {
   list-style: none;
   display: flex;
@@ -67,7 +61,7 @@
   white-space: nowrap;
 }
 
-/* Efeito underline animado nos links */
+
 .menu-nav ul li a::after {
   content: '';
   position: absolute;
@@ -84,25 +78,6 @@
   left: 25%;
 }
 
-/* ============================================
-   BURGER MENU — Mobile
-   Origem: Uiverse.io by Cevorob
-
-   CORREÇÃO BUG #1 — CRÍTICO:
-   O <input id="burger-toggle"> estava DENTRO do <label.burger>.
-   O seletor CSS "#burger-toggle:checked ~ .menu-nav" só funciona quando
-   o input e o .menu-nav são IRMÃOS (siblings) no mesmo pai.
-   Com o input dentro do label, o nav NUNCA era sibling do input,
-   quebrando o toggle CSS em 100% dos browsers.
-
-   Solução aplicada no HTML: input movido para ANTES do label,
-   ambos dentro de .menu-content. O label mantém for="burger-toggle"
-   para preservar a acessibilidade e o comportamento de clique.
-
-   O CSS abaixo reflete essa estrutura corrigida:
-   #burger-toggle (hidden input) → label.burger → nav.menu-nav
-   todos irmãos dentro de .menu-content.
-   ============================================ */
 .burger {
   position: relative;
   width: 40px;
@@ -143,32 +118,23 @@
   transform: translateY(-100%);
 }
 
-/* Animação do X ao abrir
-   CORREÇÃO: seletor atualizado para referenciar o input como sibling
-   do label via ~ (agora que o input está FORA do label no HTML).
-   Antes: .burger input:checked ~ span (quebrado — input dentro do label,
-   o span é filho, não sibling)
-   Depois: #burger-toggle:checked ~ .burger span (correto) */
-#burger-toggle:checked ~ .burger span:nth-of-type(1) {
+#burger-toggle:checked~.burger span:nth-of-type(1) {
   transform: rotate(45deg);
   top: 0;
   left: 5px;
 }
 
-#burger-toggle:checked ~ .burger span:nth-of-type(2) {
+#burger-toggle:checked~.burger span:nth-of-type(2) {
   width: 0;
   opacity: 0;
 }
 
-#burger-toggle:checked ~ .burger span:nth-of-type(3) {
+#burger-toggle:checked~.burger span:nth-of-type(3) {
   transform: rotate(-45deg);
   top: 28px;
   left: 5px;
 }
 
-/* ============================================
-   RESPONSIVIDADE DO MENU
-   ============================================ */
 
 @media (max-width: 768px) {
   .burger {
@@ -182,7 +148,6 @@
     position: relative;
   }
 
-  /* Nav oculto por padrão */
   .menu-nav {
     display: none;
     width: 100%;
@@ -190,9 +155,8 @@
     padding: 1rem 0;
   }
 
-  /* CORREÇÃO: seletor funcional após mover o input para fora do label.
-     #burger-toggle é agora sibling de .menu-nav dentro de .menu-content. */
-  #burger-toggle:checked ~ .menu-nav {
+
+  #burger-toggle:checked~.menu-nav {
     display: block;
   }
 
