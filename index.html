@@ -1,0 +1,421 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DEV | Lucas Monteiro</title>
+    <link rel="icon" type="image/svg+xml" href="assets/img/code.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&family=Open+Sans:ital,wght@0,400;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/variables.css" />
+    <link rel="stylesheet" href="assets/css/elements.css" />
+    <link rel="stylesheet" href="assets/css/classes.css" />
+    <link rel="stylesheet" href="assets/css/menu.css" />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+  </head>
+
+  <!--
+    id="top" no <body> permite que o botão "Voltar ao topo" (href="#top")
+    funcione corretamente em todos os browsers, incluindo Safari/iOS.
+  -->
+  <body id="top">
+
+    <!-- ============================================
+         MENU / HEADER
+         ============================================ -->
+    <header class="menu white-bg" role="banner">
+      <div class="main-content menu-content">
+        <h1>
+          <a href="#" aria-label="Ir para o topo — Lucas Monteiro">
+            <img
+              src="assets/img/dev-to.svg"
+              alt="Logo DEV"
+              width="40"
+              height="40"
+            />
+            <span>| Lucas Monteiro</span>
+          </a>
+        </h1>
+
+        <!--
+          CORREÇÃO BUG #1: O <label> envolve o <input type="checkbox"> e as barras.
+          O seletor CSS ".burger input:checked ~ .menu-nav" só funciona quando
+          .menu-nav é irmão do <label.burger>, não quando está dentro dele.
+          Estrutura correta: label.burger + nav.menu-nav como irmãos dentro de
+          .menu-content. O for="burger-toggle" mantém a associação.
+
+          CORREÇÃO BUG #2: O <input id="burger-toggle"> estava DENTRO do <label>,
+          o que torna o seletor ~.menu-nav inoperante (o nav não é sibling do input).
+          Movido para ANTES do label, mantendo o for= para ligação semântica.
+        -->
+        <input type="checkbox" id="burger-toggle" hidden />
+
+        <label
+          class="burger"
+          for="burger-toggle"
+          aria-label="Abrir ou fechar menu de navegação"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </label>
+
+        <nav class="menu-nav" aria-label="Navegação principal">
+          <ul>
+            <li><a href="#intro">intro</a></li>
+            <li><a href="#skills">skills</a></li>
+            <li><a href="#gallery">gallery</a></li>
+            <li><a href="#work">work</a></li>
+            <li><a href="#contact">contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!--
+      Espaçador com a mesma altura do menu fixo (65px).
+      Evita que o conteúdo fique atrás do menu ao carregar a página.
+    -->
+    <div class="menu-spacing" aria-hidden="true"></div>
+
+    <!-- ============================================
+         SEÇÃO INTRO
+         ============================================ -->
+    <section class="intro main-bg section" id="intro" aria-label="Introdução">
+      <!--
+        CORREÇÃO BUG #3: O atributo "preload" estava ausente.
+        Em iOS Safari, vídeos sem preload="none" ou preload="metadata"
+        bloqueiam o autoplay silenciosamente. Adicionado preload="metadata"
+        que permite autoplay sem pré-carregar o arquivo inteiro.
+      -->
+      <video
+        class="bg-video"
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="metadata"
+        aria-hidden="true"
+      >
+        <source src="assets/video/background.mp4" type="video/mp4" />
+      </video>
+
+      <div class="main-content intro-content">
+        <div class="intro-text-content">
+          <h2>Desenvolvedor Web em Formação</h2>
+          <p>
+            Focado em desenvolvimento web. Especializado em JavaScript e suas
+            tecnologias, criando aplicações modernas, responsivas e orientadas à
+            performance.
+          </p>
+        </div>
+
+        <div class="intro-img">
+          <!--
+            Tocha interativa (Uiverse.io by KSAplay).
+            checked=checked simplificado para checked (HTML5 booleano).
+          -->
+          <label class="container" aria-label="Ligar ou desligar tocha">
+            <div class="simple-text">Click me!</div>
+            <input type="checkbox" checked />
+            <div class="torch" aria-hidden="true">
+              <div class="head">
+                <div class="face top">
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                </div>
+                <div class="face left">
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                </div>
+                <div class="face right">
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                </div>
+              </div>
+              <div class="stick">
+                <div class="side side-left">
+                  <div></div><div></div><div></div><div></div>
+                  <div></div><div></div><div></div><div></div>
+                  <div></div><div></div><div></div><div></div>
+                  <div></div><div></div><div></div><div></div>
+                </div>
+                <div class="side side-right">
+                  <div></div><div></div><div></div><div></div>
+                  <div></div><div></div><div></div><div></div>
+                  <div></div><div></div><div></div><div></div>
+                  <div></div><div></div><div></div><div></div>
+                </div>
+              </div>
+            </div>
+          </label>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================
+         SEÇÃO SKILLS
+         ============================================ -->
+    <section class="white-bg section" id="skills" aria-label="Skills">
+      <div class="main-content">
+        <div class="skills-content">
+          <h2>SKILLS</h2>
+          <p>
+            Sou estudante de Análise e Desenvolvimento de Sistemas, com foco em
+            desenvolvimento web utilizando JavaScript e suas principais
+            tecnologias. Estou em constante evolução, aprofundando meus
+            conhecimentos no front-end e back-end, com experiência na criação de
+            interfaces modernas e responsivas utilizando HTML5, CSS3 e
+            JavaScript (ES6+), aplicando boas práticas como mobile-first,
+            componentização e organização de código.
+          </p>
+          <p>
+            Desenvolvo projetos com React.js e Vue.js, focando em aplicações
+            dinâmicas e escaláveis. No back-end, utilizo Node.js e Express na
+            criação de APIs REST e estudo NestJS para aprimorar a estrutura das
+            aplicações. Possuo conhecimento em autenticação com JWT, integração
+            com APIs, MongoDB, Git e GitHub, além de estar em constante
+            aprendizado de ferramentas como Docker para evolução do ambiente de
+            desenvolvimento.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================
+         SEÇÃO GALLERY
+         ============================================ -->
+    <section class="intro main-bg section" id="gallery" aria-label="Gallery">
+      <video
+        class="bg-video"
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="metadata"
+        aria-hidden="true"
+      >
+        <source src="assets/video/background.mp4" type="video/mp4" />
+      </video>
+
+      <div class="main-content gallery-content">
+        <!-- INTRO -->
+        <div class="gallery-header">
+          <h2>Projetos & Experimentos</h2>
+          <p>
+            Aqui estão alguns projetos e experimentos que venho desenvolvendo ao
+            longo da minha jornada como desenvolvedor. Cada projeto representa
+            minha evolução prática, aprendizado contínuo e aplicação de
+            tecnologias modernas.
+          </p>
+        </div>
+
+        <!-- GRID -->
+        <div class="gallery-grid">
+          <!-- PROJETO PRINCIPAL -->
+          <div class="project-card destaque">
+            <h3>Sistema Financeiro Pessoal</h3>
+            <p class="status">Em desenvolvimento 🚧</p>
+
+            <div class="project-info">
+              <p>
+                Sistema completo para controle financeiro pessoal com
+                funcionalidades de lançamentos, fluxo de caixa, metas,
+                relatórios e planejamento financeiro.
+              </p>
+
+              <ul>
+                <li>✔ Login com autenticação</li>
+                <li>✔ Dashboard financeiro</li>
+                <li>✔ Controle de receitas e despesas</li>
+                <li>✔ Planejamento mensal e anual</li>
+                <li>✔ Relatórios e exportação</li>
+              </ul>
+
+              <span class="tech">Vue.js • Node.js • MongoDB</span>
+            </div>
+          </div>
+
+          <!-- PROJETO 2 -->
+          <div class="project-card">
+            <h3>Landing Page Profissional</h3>
+            <p>
+              Desenvolvimento de landing page responsiva com foco em
+              performance, design moderno e boas práticas de UI/UX. (Esta página
+              é um exemplo)
+            </p>
+            <span class="tech">HTML • CSS • JavaScript</span>
+          </div>
+
+          <!-- PROJETO 3 -->
+          <div class="project-card">
+            <h3>Interface Clone (UI)</h3>
+            <p>
+              Recriação de interfaces modernas para estudo de layout,
+              responsividade e experiência do usuário.
+            </p>
+            <span class="tech">CSS • Flexbox • Grid</span>
+          </div>
+
+          <!-- EXPERIMENTO -->
+          <div class="project-card">
+            <h3>Experimentos Visuais</h3>
+            <p>
+              Testes com animações, efeitos de scroll, Lottie e interações
+              modernas para melhorar a experiência do usuário.
+            </p>
+            <span class="tech">JavaScript • Animações</span>
+          </div>
+
+          <!-- FUTURO -->
+          <div class="project-card future">
+            <h3>Próximos Projetos</h3>
+            <p>
+              Em breve novos projetos incluindo integrações com APIs, automações
+              e aplicações completas.
+            </p>
+            <span class="tech">Em evolução...</span>
+          </div>
+        </div>
+        <!-- FECHA gallery-grid -->
+      </div>
+    </section>
+
+    <!-- ============================================
+         SEÇÃO WORK
+         ============================================ -->
+    <section class="white-bg section" id="work" aria-label="Work">
+      <div class="main-content">
+        <div class="work-content">
+          <h2>Work</h2>
+
+          <p>
+            Desenvolvo landing pages modernas, responsivas e orientadas à
+            performance, com foco em apresentação profissional, experiência do
+            usuário e conversão.
+          </p>
+
+          <p>
+            Cada projeto é pensado para destacar sua marca, organizar suas
+            informações de forma estratégica e transmitir credibilidade no
+            ambiente digital.
+          </p>
+
+          <p>
+            Se você deseja uma presença online mais sólida e eficiente, entre em
+            <a href="#contact"> contato </a>
+            e solicite um orçamento para o seu projeto.
+          </p>
+
+          <div class="wrapper">
+            <span class="letter letter1">L</span>
+            <span class="letter letter2">o</span>
+            <span class="letter letter3">a</span>
+            <span class="letter letter4">d</span>
+            <span class="letter letter5">i</span>
+            <span class="letter letter6">n</span>
+            <span class="letter letter7">g</span>
+            <span class="letter letter8">.</span>
+            <span class="letter letter9">.</span>
+            <span class="letter letter10">.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================
+         FOOTER / CONTATO
+         ============================================ -->
+    <footer class="footer" id="contact" aria-label="Contato e rodapé">
+      <div class="main-content footer-content">
+        <p class="footer-text">© 2026 Lucas Monteiro • Desenvolvedor Web</p>
+
+        <div class="footer-icons">
+          <a
+            href="https://github.com/LucasM07-2001"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="GitHub"
+          >
+            <img src="assets/img/github.svg" alt="GitHub" class="icon" />
+          </a>
+
+          <a
+            href="https://wa.me/5541996315247?text=Ol%C3%A1%2C%20Lucas%21%20Vi%20seu%20portf%C3%B3lio%20e%20gostei%20do%20seu%20trabalho.%20Podemos%20conversar%3F"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="WhatsApp"
+          >
+            <img src="assets/img/whatsapp.svg" alt="WhatsApp" class="icon" />
+          </a>
+
+          <!--
+            CORREÇÃO BUG #4: href corrompido pelo Cloudflare email obfuscation.
+            Restaurado para mailto: direto. Se o site usar Cloudflare, o sistema
+            vai reofuscar automaticamente em produção — este é o valor correto
+            para manter no source do projeto (repositório/local).
+          -->
+          <a
+            href="mailto:lucasmonteiro.dev@gmail.com"
+            aria-label="Enviar email"
+          >
+            <img src="assets/img/email.svg" alt="Email" class="icon" />
+          </a>
+
+          <a
+            href="https://www.linkedin.com/in/lucas-monteiro-2198771a3/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn"
+          >
+            <img src="assets/img/linkedin.svg" alt="LinkedIn" class="icon" />
+          </a>
+
+          <a
+            href="https://www.instagram.com/lucasmonteiro._.0/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Instagram"
+          >
+            <img src="assets/img/instagram.svg" alt="Instagram" class="icon" />
+          </a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- ============================================
+         BOTÃO VOLTAR AO TOPO
+         ============================================ -->
+    <a href="#top" class="button" aria-label="Voltar ao topo">
+      <svg class="svgIcon" viewBox="0 0 384 512" aria-hidden="true">
+        <path
+          d="M214.6 41.4c-12.5-12.5-32.8-12.5-45.3 0l-160 160c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 141.2V448c0 17.7 14.3 32 32 32s32-14.3 32-32V141.2L329.4 246.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3l-160-160z"
+        ></path>
+      </svg>
+    </a>
+
+
+    <script>
+      const burgerToggle = document.getElementById("burger-toggle");
+      const navLinks = document.querySelectorAll(".menu-nav a");
+
+      navLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+          if (burgerToggle) {
+            burgerToggle.checked = false;
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

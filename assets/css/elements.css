@@ -1,0 +1,83 @@
+/* ============================================
+   ELEMENTS.CSS — Reset e estilos base
+   ============================================ */
+
+/* CORREÇÃO: adicionado box-sizing universal — previne overflow em 100% dos elementos */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  font-size: 62.5%; /* 1rem = 10px */
+  scroll-behavior: smooth;
+  /* ADICIONADO: previne scroll horizontal indesejado */
+  overflow-x: hidden;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 2rem;
+  color: var(--primary-color);
+  line-height: 1.5;
+  /* ADICIONADO: previne scroll horizontal em mobile */
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* CORREÇÃO: bloco h1 estava duplicado no original — removida a cópia */
+h1 {
+  font-size: 6rem;
+  text-transform: uppercase;
+}
+
+h2 {
+  font-size: 5.5rem;
+}
+
+h3 {
+  font-size: 5rem;
+}
+
+h4 {
+  font-size: 4.5rem;
+}
+
+h5 {
+  font-size: 4rem;
+}
+
+h6 {
+  font-size: 3.5rem;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* Remove o flash azul/cinza de toque em dispositivos móveis.
+   O reset no * não é suficiente — <a>, <label> e <input> recebem
+   tratamento especial no Chrome Android e Safari iOS e precisam
+   ser declarados explicitamente. */
+a,
+button,
+label,
+input,
+select,
+textarea {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* ADICIONADO: imagens responsivas por padrão */
+img,
+video {
+  max-width: 100%;
+  display: block;
+}

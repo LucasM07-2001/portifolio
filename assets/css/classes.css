@@ -1,0 +1,72 @@
+/* ============================================
+   CLASSES.CSS — Classes utilitárias globais
+   ============================================ */
+
+.main-bg {
+  background-image: url('../img/main-bg.svg');
+  background-size: cover;
+  background-position: center center;
+  color: var(--white-color);
+}
+
+.white-bg {
+  background: var(--white-color);
+  color: var(--primary-color);
+}
+
+.main-content {
+  max-width: 120rem;
+  /* CORREÇÃO: adicionado width: 100% para evitar overflow em telas pequenas */
+  width: 100%;
+  margin: 0 auto;
+  padding: var(--gap);
+}
+
+.section {
+  min-height: 100vh;
+}
+
+/* Espaçador com mesma altura do menu fixo */
+.menu-spacing {
+  height: 65px;
+}
+
+/* ============================================
+   INTRO COM VÍDEO DE FUNDO
+   CORREÇÃO: removidas as duplicatas que existiam
+   tanto aqui quanto em styles.css
+   ============================================ */
+.intro.main-bg {
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh;
+  /* Remove o background-image para dar lugar ao vídeo */
+  background-image: none;
+}
+
+/* Overlay escuro sobre o vídeo */
+.intro.main-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 1;
+}
+
+/* Vídeo ocupa todo o container */
+.bg-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* ADICIONADO: garante que o vídeo fique abaixo do overlay */
+  z-index: 0;
+}
+
+/* Conteúdo da intro acima do overlay */
+.intro .main-content {
+  position: relative;
+  z-index: 2;
+}
