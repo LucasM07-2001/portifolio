@@ -16,10 +16,11 @@
     <link rel="stylesheet" href="assets/css/classes.css" />
     <link rel="stylesheet" href="assets/css/menu.css" />
     <link rel="stylesheet" href="assets/css/styles.css" />
+    <link rel="stylesheet" href="assets/css/torch.css" />
   </head>
 
   <body id="top">
-    <header class="menu white-bg" role="banner">
+    <header class="menu white-bg">
       <div class="main-content menu-content">
         <h1>
           <a href="#" aria-label="Ir para o topo — Lucas Monteiro">
@@ -47,17 +48,17 @@
 
         <nav class="menu-nav" aria-label="Navegação principal">
           <ul>
-            <li><a href="#intro">introdução</a></li>
-            <li><a href="#skills">habilidades</a></li>
-            <li><a href="#gallery">projetos</a></li>
-            <li><a href="#work">trabalho</a></li>
-            <li><a href="#contact">contato</a></li>
+            <li><a href="#intro">Introdução</a></li>
+            <li><a href="#skills">Habilidades</a></li>
+            <li><a href="#gallery">Projetos</a></li>
+            <li><a href="#work">Trabalho</a></li>
+            <li><a href="#contact">Contato</a></li>
           </ul>
         </nav>
       </div>
     </header>
 
-    <div class="menu-spacing" aria-hidden="true"></div>
+    <div class="menu-spacing"></div>
 
     <section class="intro main-bg section" id="intro" aria-label="Introdução">
       <video
@@ -66,7 +67,7 @@
         muted
         loop
         playsinline
-        preload="metadata"
+        preload="auto"
         aria-hidden="true"
       >
         <source src="assets/video/background.mp4" type="video/mp4" />
@@ -83,69 +84,20 @@
         </div>
 
         <div class="intro-img">
-          <label class="container" aria-label="Ligar ou desligar tocha">
-            <div class="simple-text">Click me!</div>
-            <input type="checkbox" checked />
-            <div class="torch" aria-hidden="true">
-              <div class="head">
-                <div class="face top">
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                </div>
-                <div class="face left">
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                </div>
-                <div class="face right">
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                </div>
+          <label class="torch-toggle" id="torch-toggle" aria-label="Alternar tema claro ou escuro">
+            <input type="checkbox" id="torch-checkbox" checked />
+            <div class="torch-visual" aria-hidden="true">
+              <div class="torch-head">
+                <div class="torch-face torch-top"></div>
+                <div class="torch-face torch-left"></div>
+                <div class="torch-face torch-right"></div>
               </div>
-              <div class="stick">
-                <div class="side side-left">
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                </div>
-                <div class="side side-right">
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                </div>
+              <div class="torch-stick">
+                <div class="torch-side torch-side-left"></div>
+                <div class="torch-side torch-side-right"></div>
               </div>
             </div>
+            <span class="torch-label">Tema</span>
           </label>
         </div>
       </div>
@@ -184,7 +136,7 @@
         muted
         loop
         playsinline
-        preload="metadata"
+        preload="auto"
         aria-hidden="true"
       >
         <source src="assets/video/background.mp4" type="video/mp4" />
@@ -287,19 +239,6 @@
             <a href="#contact"> contato </a>
             e solicite um orçamento para o seu projeto.
           </p>
-
-          <div class="wrapper">
-            <span class="letter letter1">L</span>
-            <span class="letter letter2">o</span>
-            <span class="letter letter3">a</span>
-            <span class="letter letter4">d</span>
-            <span class="letter letter5">i</span>
-            <span class="letter letter6">n</span>
-            <span class="letter letter7">g</span>
-            <span class="letter letter8">.</span>
-            <span class="letter letter9">.</span>
-            <span class="letter letter10">.</span>
-          </div>
         </div>
       </div>
     </section>
@@ -361,8 +300,10 @@
           d="M214.6 41.4c-12.5-12.5-32.8-12.5-45.3 0l-160 160c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 141.2V448c0 17.7 14.3 32 32 32s32-14.3 32-32V141.2L329.4 246.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3l-160-160z"
         ></path>
       </svg>
+      <span class="button-text">Topo</span>
     </a>
 
+    <script src="assets/js/theme-toggle.js" defer></script>
     <script>
       const burgerToggle = document.getElementById("burger-toggle");
       const navLinks = document.querySelectorAll(".menu-nav a");
